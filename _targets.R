@@ -14,12 +14,12 @@ list(
   # Prepare the data for plotting
   tar_target(
     eval_data,
-    prep_data(file_in = model_RMSEs_csv)),
+    prep_data(file_in = model_RMSEs_csv),
   ),
   # Create a plot
   tar_target(
     figure_1_png,
-    plot_data(plot_out = "3_visualize/out/figure_1.png", data = eval_data), 
+    plot_data(plot_out = "3_visualize/out/figure_1.png", eval_data), 
     format = "file"
   ),
   # Save the processed data

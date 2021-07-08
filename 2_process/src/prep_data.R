@@ -35,6 +35,8 @@ save_diagnostics <- function(eval_data, project_output_dir, file_diag){
                    str_remove_all('\n') %>% 
                    str_replace_all('  ', ' '), render_data ) %>% 
     cat(file = file.path(project_output_dir, file_diag)) 
+  
+  return(file.path(project_output_dir, file_diag))
 }
 
 
