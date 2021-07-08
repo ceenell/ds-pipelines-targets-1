@@ -13,6 +13,10 @@ prep_data <- function(file_in){
     ), n_prof = as.numeric(str_extract(exper_id, '[0-9]+')))
   
 }
+write_rmse <- function(eval_data, file_out){
+  write_csv(eval_data, file = file_out)
+  return(file_out)
+}
 
 # Save the model diagnostics
 save_diagnostics <- function(eval_data, project_output_dir, file_diag){
@@ -35,7 +39,6 @@ save_diagnostics <- function(eval_data, project_output_dir, file_diag){
                    str_remove_all('\n') %>% 
                    str_replace_all('  ', ' '), render_data ) %>% 
     cat(file = file.path(project_output_dir, file_diag)) 
-  
   return(file.path(project_output_dir, file_diag))
 }
 

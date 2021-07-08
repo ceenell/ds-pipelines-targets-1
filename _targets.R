@@ -14,7 +14,7 @@ list(
   # Prepare the data for plotting
   tar_target(
     eval_data,
-    prep_data(file_in = model_RMSEs_csv),
+    prep_data(file_in = model_RMSEs_csv)
   ),
   # Create a plot
   tar_target(
@@ -25,7 +25,7 @@ list(
   # Save the processed data
   tar_target(
     model_summary_results_csv,
-    write_csv(eval_data, file = "2_process/out/model_summary_results.csv"), 
+    write_rmse(eval_data, file_out = "2_process/out/model_summary_results.csv"), 
     format = "file"
   ),
   # Save the model diagnostics
