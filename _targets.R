@@ -17,7 +17,7 @@ list(
   # Create a plot
   tar_target(
     figure_1_png,
-    plot_data(out_filepath = "figure_1.png", data = eval_data), 
+    plot_data(out_filepath = "3_visualize/out/figure_1.png", data = eval_data), 
     format = "file"
   ),
   # Save the processed data
