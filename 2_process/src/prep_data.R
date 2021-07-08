@@ -1,4 +1,4 @@
-prep_data <- function(file_in, file_out){
+prep_data <- function(file_in){
   # Prepare the data for plotting
   readr::read_csv(file_in, col_types = 'iccd') %>%
     filter(str_detect(exper_id, 'similar_[0-9]+')) %>%
