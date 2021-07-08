@@ -1,10 +1,10 @@
 # Get the data from ScienceBase
-fetch_sb <- function(project_output_dir = '1_fetch/out') {
-  if(!dir.exists(project_output_dir)){
-    dir.create(project_output_dir)
+fetch_sb <- function(fetch_dir, sb_file, sbitem, out_file) {
+  if(!dir.exists(fetch_dir)){
+    dir.create(fetch_dir)
   }
-  sb_fp <- file.path(project_output_dir, 'model_RMSEs.csv')
-  sbtools::item_file_download('5d925066e4b0c4f70d0d0599', names = 'me_RMSE.csv', destinations = sb_fp, overwrite_file = TRUE)
+  sb_fp <- file.path(fetch_dir, out_file)
+  sbtools::item_file_download(sbitem, names = sb_file, destinations = sb_fp, overwrite_file = TRUE)
 }
 
 
