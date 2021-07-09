@@ -4,6 +4,4 @@
 .Ruserdata
 *DS_Store
 _targets
-1_fetch/out/*.csv
-3_visualize/out/*.png
 */out/*
