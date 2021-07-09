@@ -1,4 +1,4 @@
-prep_data <- function(file_in, file_out){
+prep_data <- function(file_in){
   # Prepare the data for plotting
   readr::read_csv(file_in, col_types = 'iccd') %>%
     filter(str_detect(exper_id, 'similar_[0-9]+')) %>%
@@ -12,6 +12,10 @@ prep_data <- function(file_in, file_out){
       model_type == 'pgdl' ~ 23
     ), n_prof = as.numeric(str_extract(exper_id, '[0-9]+')))
   
+}
+write_rmse <- function(eval_data, file_out){
+  write_csv(eval_data, file = file_out)
+  return(file_out)
 }
 
 # Save the model diagnostics
@@ -35,6 +39,7 @@ save_diagnostics <- function(eval_data, project_output_dir, file_diag){
                    str_remove_all('\n') %>% 
                    str_replace_all('  ', ' '), render_data ) %>% 
     cat(file = file.path(project_output_dir, file_diag)) 
+  return(file.path(project_output_dir, file_diag))
 }
 
 

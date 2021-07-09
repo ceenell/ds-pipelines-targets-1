@@ -41,5 +41,6 @@ plot_data <- function(plot_out, eval_data){
   text(2.3, 1.1, 'Process-Based', pos = 4, cex = 1.1)
   
   dev.off() 
+  return(plot_out)
 }
 
